@@ -247,6 +247,6 @@ dispatcher.add_handler(account_details_conversation_handler)
 dispatcher.add_handler(channel_conversation_handler)
 
 # Start polling for updates
-updater.start_polling(port=int(TELEGRAM_PORT))
+updater.start_polling()
 
 updater.idle()
