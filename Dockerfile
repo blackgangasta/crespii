@@ -11,4 +11,4 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Define the entry point for the container
-CMD ["python", "hack2.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "hack2.py", "runserver", "0.0.0.0:8080"]
