@@ -10,6 +10,8 @@ REFERRAL_LINK = 3
 ACCOUNT_DETAILS = 4
 CHANNEL = 5
 CHANNEL_USERNAME = '@Darking_down'
+TELEGRAM_PORT = 8080
+
 
 # User data dictionary to store points and account details
 user_data = {}
@@ -189,7 +191,7 @@ def handle_referral_link_callback(update: Update, context: CallbackContext):
     update.callback_query.answer("لقد تم توفير نقطة لحسابك لمشاركة الرابط.")
     update.callback_query.bot.send_message(user_id, f"لقد تم توفير نقطة لحسابك لمشاركة الرابط. شكراً!")
 
-updater = Updater(token='6184145071:AAGk-c7IIrDb7nVhZO1lgZwdqdupJH52EQ0')
+updater = Updater(token='6184145071:AAGk-c7IIrDb7nVhZO1lgZwdqdupJH52EQ0', use_context=True)
 dispatcher = updater.dispatcher
 
 # Create conversation handlers
@@ -245,5 +247,6 @@ dispatcher.add_handler(account_details_conversation_handler)
 dispatcher.add_handler(channel_conversation_handler)
 
 # Start polling for updates
-updater.start_polling(port=8080)
+updater.start_polling(port=TELEGRAM_PORT)
+
 updater.idle()
