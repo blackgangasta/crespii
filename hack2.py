@@ -2,6 +2,10 @@ from telegram import ReplyKeyboardMarkup, KeyboardButton
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackQueryHandler
 from telegram import Update
 from telegram.ext import CallbackContext
+from flask import Flask, request
+from threading import Thread
+
+app = Flask('')
 
 # Define states for the conversation
 CONFIRMATION = 1
@@ -246,7 +250,14 @@ dispatcher.add_handler(referral_link_conversation_handler)
 dispatcher.add_handler(account_details_conversation_handler)
 dispatcher.add_handler(channel_conversation_handler)
 
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
 # Start polling for updates
 updater.start_polling()
 
 updater.idle()
+
+ keep_alive()  # Start the web server
+    bot.infinity_polling(skip_pending=True)
+
