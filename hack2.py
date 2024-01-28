@@ -258,6 +258,7 @@ updater.start_polling()
 
 updater.idle()
 
- keep_alive()  # Start the web server
-    bot.infinity_polling(skip_pending=True)
+keep_alive()  # Start the web server
+bot.infinity_polling(skip_pending=True)
+
 
